@@ -3,8 +3,8 @@ import { useResList } from "../../utils/useRestList"
 
 function Home() {
 
-  const data = useResList()
-console.log(data);
+  // const data = useResList()
+// console.log(data);
   return (
     <>
          {/* <Cards /> */}

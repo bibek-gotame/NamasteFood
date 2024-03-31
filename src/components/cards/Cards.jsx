@@ -3,8 +3,8 @@ import { userContext } from "../../utils/userContext";
 
 function Cards({res}) {
 
-  const{userName,test} =useContext(userContext);
-console.log(test+'card');
+  const{userName} =useContext(userContext);
+// console.log(test+'card');
   const {
     name,
   cuisines,

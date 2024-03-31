@@ -11,7 +11,7 @@ function Home() {
   const [inputSearch, setinputSearch] = useState("");
   const [filtercount, setFiltercount] = useState(0);
 
-  const {setUser,setSetUser,changeUserName} = useContext(userContext)
+  const {setUser,setSetUser,changeUserName,userName} = useContext(userContext)
   const [testt , setTest] = useState(`I'm test from `)
   const handleRate = () => {
     setresData(restaurants.filter((res) => res.info.avgRating >= 4));
@@ -22,7 +22,8 @@ console.log(setUser);
 
   return (
     <>
-    <userContext.Provider value={{testt}}>
+  <userContext.Provider value={{...testt}}>  
+  {/* why by wrapping card component in the Home component it cannot access the context provided by app component but home can easily use the context proiveded by app component */}
       <div>
         <input
           type="text"
@@ -48,8 +49,9 @@ console.log(setUser);
           onClick={changeUserName}
           className="m-2 border-2 border-black px-4 py-1 rounded-md"
         >
-          Search
+          Change User
         </button>
+        <div>{userName}</div>
       </div>
       <div className="flex items-center">
         <h1 className="font-bold text-xl w-fit">Filters ({filtercount})</h1>{" "}

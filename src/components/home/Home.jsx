@@ -12,6 +12,7 @@ function Home() {
   const [filtercount, setFiltercount] = useState(0);
 
   const {setUser,setSetUser,changeUserName} = useContext(userContext)
+  const [testt , setTest] = useState(`I'm test from `)
   const handleRate = () => {
     setresData(restaurants.filter((res) => res.info.avgRating >= 4));
     setFiltercount(1);
@@ -21,6 +22,7 @@ console.log(setUser);
 
   return (
     <>
+    <userContext.Provider value={{testt}}>
       <div>
         <input
           type="text"
@@ -67,6 +69,7 @@ console.log(setUser);
         </div>
         {/* <Cards /> */}
       </div>
+      </userContext.Provider>
     </>
   );
 }

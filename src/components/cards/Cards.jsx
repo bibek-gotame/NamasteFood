@@ -1,5 +1,10 @@
+import { useContext} from "react";
+import { userContext } from "../../utils/userContext";
 
 function Cards({res}) {
+
+  const{userName} =useContext(userContext);
+
   const {
     name,
   cuisines,
@@ -25,6 +30,7 @@ function Cards({res}) {
           <h4>{avgRating} stars</h4>
           <h4>{costForTwo} </h4>
           <h4>{deliveryTime} minutes</h4>
+          <h4>{userName}</h4>
         </div>
   </div>
     </>

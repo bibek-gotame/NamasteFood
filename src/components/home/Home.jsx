@@ -6,26 +6,16 @@ import { useUserContext } from "../../utils/useUserContext";
 function Home() {
   const restaurants = data.restaurants;
 
-  const [resData, setresData] = useState(restaurants); // where the filter performs. 
+  const [resData, setresData] = useState(restaurants); // where the filter performs.
   const [inputSearch, setinputSearch] = useState("");
   const [filtercount, setFiltercount] = useState(0);
 
-const {setUser,setSetUser,changeUserName,userName}=useUserContext()
- 
-
-  const handleRate = () => {
-    setresData(restaurants.filter((res) => res.info.avgRating >= 4));
-    setFiltercount(1);
-  };
-
-  const handleSearch = () => {
-    setresData(restaurants.filter((res) => res.info.name.toLowerCase().includes(inputSearch.toLocaleLowerCase()) ))
-  };
+  const { setUser, setSetUser, changeUserName, userName } = useUserContext();
 
   return (
     <>
-  {/* <userContext.Provider value={{userName}}>   */}
-  {/* why by wrapping card component in the Home component it cannot access the context provided by app component but home can easily use the context proiveded by app component bcoz we can't access context in the parent if provider is defined in the child*/}
+      {/* <userContext.Provider value={{userName}}>   */}
+      {/* why by wrapping card component in the Home component it cannot access the context provided by app component but home can easily use the context proiveded by app component bcoz we can't access context in the parent if provider is defined in the child*/}
       <div>
         <input
           type="text"
@@ -34,7 +24,15 @@ const {setUser,setSetUser,changeUserName,userName}=useUserContext()
           className="border-2 border-gray-500 rounded-md py-0.5 px-3 font-semibold text-lg  w-60"
         />{" "}
         <button
-          onClick={handleSearch}
+          onClick={() => {
+            setresData(
+              restaurants.filter((res) =>
+                res.info.name
+                  .toLowerCase()
+                  .includes(inputSearch.toLocaleLowerCase())
+              )
+            );
+          }}
           className="m-2 border-2 border-black px-4 py-1 rounded-md"
         >
           Search
@@ -58,7 +56,10 @@ const {setUser,setSetUser,changeUserName,userName}=useUserContext()
       <div className="flex items-center">
         <h1 className="font-bold text-xl w-fit">Filters ({filtercount})</h1>{" "}
         <button
-          onClick={handleRate}
+          onClick={() => {
+            setresData(restaurants.filter((res) => res.info.avgRating >= 4));
+            setFiltercount(1);
+          }}
           className="m-2 border-4 border-black px-4 py-2 rounded-md"
         >
           Rated 4+{" "}

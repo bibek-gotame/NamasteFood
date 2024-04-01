@@ -1,9 +1,14 @@
 
 import { useUserContext } from "../../utils/useUserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from '../../utils/store/cartSlice';
+
 
 function Cards({res}) {
   
   const{userName} = useUserContext()
+
+const dispatch = useDispatch()
 
   const {
     name,
@@ -13,6 +18,7 @@ function Cards({res}) {
   sla,
   cloudinaryImageId
   }=res.info
+
   return (
     <>
   <div className="flex  flex-col justify-between   w-[20rem] bg-gray-100 border-gray-400 border-2  rounded-lg ">
@@ -34,7 +40,11 @@ function Cards({res}) {
           <h4>{userName}</h4>
         </div>
  </div>
-          <button className="text-center w-full p-2 bg-black text-white font-bold ">Add to Cart</button>
+          <button className="text-center w-full p-2 bg-black text-white font-bold "
+          onClick={()=>{
+            dispatch(addItem(res))
+          }}
+          >Add to Cart</button>
   </div>
     </>
   )

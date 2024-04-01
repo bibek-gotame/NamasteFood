@@ -31,6 +31,7 @@ function Cards({res}) {
           <h4>{costForTwo} </h4>
           <h4>{deliveryTime} minutes</h4>
           <h4>{userName}</h4>
+          <button className="text-center w-full p-2 bg-black text-white font-bold ">Add to Cart</button>
         </div>
   </div>
     </>

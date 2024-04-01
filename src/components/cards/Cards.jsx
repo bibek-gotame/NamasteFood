@@ -2,16 +2,21 @@
 import { useUserContext } from "../../utils/useUserContext";
 import { useDispatch } from "react-redux";
 import { addItem } from '../../utils/store/cartSlice';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function Cards({res,NoAdd}) {
   
   const{userName} = useUserContext()
-
-const dispatch = useDispatch()
+// const cartItems = useUserContext()
+// const dispatch = useDispatch()
 const [Added, setAdded] = useState(true)
 
+// useEffect(()=>{
+//   if(cartItems.length === 0){
+//     setAdded(true)
+//   }
+// },[cartItems])
 
 
   const {

@@ -25,7 +25,7 @@ const {setUser,setSetUser,changeUserName,userName}=useUserContext()
   return (
     <>
   {/* <userContext.Provider value={{userName}}>   */}
-  {/* why by wrapping card component in the Home component it cannot access the context provided by app component but home can easily use the context proiveded by app component */}
+  {/* why by wrapping card component in the Home component it cannot access the context provided by app component but home can easily use the context proiveded by app component bcoz we can't access context in the parent if provider is defined in the child*/}
       <div>
         <input
           type="text"

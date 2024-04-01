@@ -21,7 +21,9 @@ function Home() {
   };
 // console.log(setUser);
 
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    setresData(resData.filter((res) => res.info.name.toLowerCase().includes(inputSearch.toLocaleLowerCase()) ))
+  };
 
   return (
     <>
@@ -64,6 +66,7 @@ function Home() {
         >
           Rated 4+{" "}
         </button>
+        <p>{resData.length} Items</p>
       </div>
       <div className="p-2">
         <div className="flex flex-wrap gap-4 mx-auto">

@@ -70,7 +70,7 @@ function Home() {
         <div className="flex flex-wrap gap-4 mx-auto">
           {" "}
           {resData.map((res) => (
-            <Cards key={res.info.id} res={res} />
+            <Cards key={res.info.id} res={res} NoAdd={true} />
           ))}
         </div>
         {/* <Cards /> */}

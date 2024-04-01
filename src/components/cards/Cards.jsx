@@ -2,13 +2,17 @@
 import { useUserContext } from "../../utils/useUserContext";
 import { useDispatch } from "react-redux";
 import { addItem } from '../../utils/store/cartSlice';
+import { useState } from "react";
 
 
-function Cards({res}) {
+function Cards({res,NoAdd}) {
   
   const{userName} = useUserContext()
 
 const dispatch = useDispatch()
+const [Added, setAdded] = useState(true)
+
+
 
   const {
     name,
@@ -40,11 +44,10 @@ const dispatch = useDispatch()
           <h4>{userName}</h4>
         </div>
  </div>
-          <button className="text-center w-full p-2 bg-black text-white font-bold "
-          onClick={()=>{
+            {NoAdd && <div> {Added? <button className="text-center w-full p-2 bg-black text-white font-bold " 
+          onClick={()=>{ 
             dispatch(addItem(res))
-          }}
-          >Add to Cart</button>
+             setAdded(!Added)}}> Add to Cart</button>:<h1  className="text-center w-full p-2 bg-black text-white font-bold " >Added</h1>} </div> }
   </div>
     </>
   )

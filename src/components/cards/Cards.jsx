@@ -9,7 +9,7 @@ function Cards({res,NoAdd}) {
   
   const{userName} = useUserContext()
 // const cartItems = useUserContext()
-// const dispatch = useDispatch()
+const dispatch = useDispatch()
 const [Added, setAdded] = useState(true)
 
 // useEffect(()=>{
@@ -30,7 +30,7 @@ const [Added, setAdded] = useState(true)
 
   return (
     <>
-  <div className="flex  flex-col justify-between   w-[20rem] bg-gray-100 border-gray-400 border-2  rounded-lg ">
+  <div className="flex  flex-col justify-between    w-[20rem] bg-gray-100 border-gray-400 border-2  rounded-lg h-[31.5rem]">
  <div  >
  <img
           className="res-logo h-[17rem]  w-full object-cover"
@@ -48,9 +48,10 @@ const [Added, setAdded] = useState(true)
           <h4>{sla.deliveryTime} minutes</h4>
           <h4>{userName}</h4>
         </div>
+
  </div>
-            {NoAdd && <div> {Added? <button className="text-center w-full p-2 bg-black text-white font-bold " 
-          onClick={()=>{ 
+
+            {NoAdd && <div> {Added? <button className="text-center w-full p-2 bg-black text-white font-bold " onClick={()=>{ 
             dispatch(addItem(res))
              setAdded(!Added)}}> Add to Cart</button>:<h1  className="text-center w-full p-2 bg-black text-white font-bold " >Added</h1>} </div> }
   </div>
